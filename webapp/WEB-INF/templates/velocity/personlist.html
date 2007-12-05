@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>:: List of All Person ::</title>
+</head>
+<body>
+
+<table border="0" cellpadding="2" cellspacing="2">
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>&nbsp;</th>
+	</tr>
+	#foreach($person in $personList)
+	<tr>
+		<td>$person.Name</td>
+		<td>$person.Email</td>
+		<td><a href="personform?person_id=$person.Id">edit</a> | <a
+			href="persondetail?person_id=$person.Id">view</a></td>
+	</tr>
+	#end
+</table>
+
+
+</body>
+</html>

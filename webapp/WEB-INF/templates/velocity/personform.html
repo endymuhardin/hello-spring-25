@@ -1,0 +1,36 @@
+<html>
+
+<head>
+<title>:: Register New Person ::</title>
+</head>
+
+<body>
+<h1>Edit Person</h1>
+
+<form method="POST">
+<input type="hidden" name="id" value="$!person.Id">
+<table>
+	<tr>
+		<td>Nama</td>
+		<td>
+			#springBind("person.name")
+			<input type="text" name="name" value="$!person.Name">
+		</td>
+		<td>#springShowErrors("<br>" "")</td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td>
+			#springBind("person.email")
+			<input type="text" name="email" value="$!person.Email">
+		</td>
+		<td>#springShowErrors("<br>" "")</td>
+	</tr>
+	<tr>
+		<td colspan="3"><input type="submit" value="Save"></td>
+	</tr>
+</table>
+</form>
+</body>
+
+</html>

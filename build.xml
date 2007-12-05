@@ -1,0 +1,90 @@
+<project name="tutorial-spring25" default="unit-test">
+
+	<property name="source.java" value="src/java" />
+	<property name="source.config" value="src/config" />
+	<property name="web.dir" value="webapp" />
+	<property name="compile.normal.dir" value="build/bin" />
+	<property name="report.junit" value="build/report/junit" />
+	<property name="deploy.dir" value="/opt/apache-tomcat-5.5.17/webapps" />
+	<property name="winstone.dir" value="ext/winstone"/>
+
+
+	<path id="compile.classpath">
+		<pathelement location="${source.java}" />
+		<pathelement location="${source.config}" />
+		<fileset dir="ext" includes="**/*.jar">
+		</fileset>
+		<fileset dir="lib" includes="**/*.jar">
+		</fileset>
+	</path>
+
+	<target name="prepare">
+		<mkdir dir="${compile.normal.dir}" />
+		<mkdir dir="${report.junit}" />
+		<mkdir dir="dist" />
+	</target>
+
+	<target name="clean">
+		<delete dir="dist" />
+		<delete dir="build" />
+		<delete dir="${report.pmd}" />
+		<delete dir="${report.junit}" />
+	</target>
+
+	<target name="compile" depends="prepare">
+		<javac srcdir="${source.java}" destdir="${compile.normal.dir}" classpathref="compile.classpath">
+		</javac>
+	</target>
+
+	<target name="unit-test" depends="compile">
+		<junit haltonfailure="true" fork="true" printsummary="true">
+			<classpath refid="compile.classpath" />
+			<classpath location="${compile.normal.dir}" />
+			<formatter type="xml" />
+			<batchtest todir="${report.junit}">
+				<fileset dir="${compile.normal.dir}" includes="**/*Test.class" excludes="**/Abstract*.class" />
+			</batchtest>
+		</junit>
+
+		<junitreport todir="${report.junit}">
+			<fileset dir="${report.junit}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${report.junit}/html" />
+		</junitreport>
+	</target>
+
+	<target name="build-jar" depends="clean, compile">
+		<jar destfile="dist/${ant.project.name}.jar">
+			<fileset dir="${compile.normal.dir}">
+				<include name="**/*.class" />
+				<exclude name="**/*Test.class" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="build-war" depends="build-jar">
+		<jar destfile="dist/${ant.project.name}.war">
+			<fileset dir="${web.dir}" />
+			<zipfileset dir="${source.config}" prefix="WEB-INF/classes" includes="**/*" />
+			<zipfileset dir="lib" prefix="WEB-INF/lib" includes="**/*" />
+			<zipfileset dir="dist" prefix="WEB-INF/lib" includes="**/*jar" />
+		</jar>
+	</target>
+
+	<target name="build-winstone" depends="build-war">
+		<zip destfile="dist/${ant.project.name}-winstone.jar">
+			<fileset dir="${winstone.dir}" />
+			<zipfileset dir="dist" includes="${ant.project.name}.war" fullpath="embedded.war"/>
+		</zip>
+	</target>
+
+	<target name="deploy" depends="build-war">
+		<copy file="dist/${ant.project.name}.war" todir="${deploy.dir}" />
+	</target>
+
+	<target name="undeploy">
+		<delete file="${deploy.dir}/${ant.project.name}.war" />
+		<delete dir="${deploy.dir}/${ant.project.name}" />
+	</target>
+</project>
