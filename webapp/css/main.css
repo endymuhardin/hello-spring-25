@@ -1,0 +1,179 @@
+body {
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+form input {
+	font-family: monospace;
+}
+
+td {
+	border-bottom: 1px dotted silver;
+	padding: 0px 7px 7px 7px;
+}
+
+th {
+	padding: 2px 2px 2px 7px;
+	text-align: left;
+	border-bottom: 1px solid silver;
+}
+
+h1 {
+	border: 1px dotted #AAA;
+	background-color: #EEE;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+h2 {
+	border-top: 2px dotted #DDD;
+	width: 75%;
+	font-size: 1.2em;	
+}
+
+a:hover {
+	background-color: #DDD;
+}
+
+#loginbox {			
+	background-color: black;
+	color: white;
+	padding: 15px 3px 3px 1px;
+	text-align: center;
+}
+
+#loginbox h1, #loginbox h2, #header h1, #header h2 {
+	margin: 0;
+	border: 0;
+	background-color: black;
+	padding: 3px 0px 3px 0px;
+	width: 100%;
+}
+
+#loginbox li {
+	list-style: none;
+}
+
+#loginbox table {
+	margin-left: 25%;
+	text-align: left;
+	margin-top: 20px;
+	padding: 15px;
+	background-color: white;
+	color: black;
+	display: block;
+}
+
+#loginbox td {
+	border: 0;
+}
+
+
+#header {	
+	text-align: center;		
+	background-color: black;
+	color: white;
+}
+
+#footer {	
+	text-align: center;
+	border-top: 1px solid gray;	
+}
+
+#company-logo {
+	
+}
+
+#top-bar ul {
+	margin: 1px;
+	padding: 1px;
+}
+
+#top-bar li {
+	display: inline;
+	padding-right: 2px;
+}
+
+#menu-bar {
+	text-align: center;
+	padding: 0px;
+}
+
+#menu-bar ul {
+	margin: 1px;
+	padding: 1px;
+}
+
+#menu-bar li {
+	display: inline;
+	margin: 1px;
+	padding: 1px;
+}
+
+.warn, .error, .info {
+	text-align: center;
+	font-size: 0.8em;
+	margin: 5px 0 0 7%;
+	padding: 2px;
+	width: 70%; 
+}
+
+.warn {
+	background-color: yellow;
+}
+
+.error {
+	background-color: pink;
+}
+
+.info {
+	background-color: aqua;
+}
+
+#breadcrumb {
+	margin: 0 0 0 2%;
+	font-size: 0.7em;
+	font-weight: bold;
+}
+
+#main {
+	
+}
+
+#content {
+	
+}
+
+#sidebar {
+	
+}
+
+#sidebar h1 {
+	margin: 20px 0px 0px 0px;
+	padding: 0;
+	font-size: 1em;
+	border-top: 0.5px solid silver;
+	width: 85%;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar li {
+	margin-left: 15px;
+	padding: 0;
+	list-style: circle;
+}
+
+.box {
+	background: #EEE;
+}
+
+.box h2 {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	width: 100%;
+}

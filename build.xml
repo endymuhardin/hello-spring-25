@@ -1,4 +1,4 @@
-<project name="tutorial-spring25" default="unit-test">
+<project name="tutorial-spring25" default="run">
 
 	<property name="source.java" value="src/java" />
 	<property name="source.config" value="src/config" />
@@ -54,7 +54,7 @@
 		</junitreport>
 	</target>
 
-	<target name="build-jar" depends="clean, compile">
+	<target name="build-jar" depends="clean, unit-test">
 		<jar destfile="dist/${ant.project.name}.jar">
 			<fileset dir="${compile.normal.dir}">
 				<include name="**/*.class" />
@@ -77,6 +77,10 @@
 			<fileset dir="${winstone.dir}" />
 			<zipfileset dir="dist" includes="${ant.project.name}.war" fullpath="embedded.war"/>
 		</zip>
+	</target>
+	
+	<target name="run" depends="build-winstone">
+	    <java jar="dist/${ant.project.name}-winstone.jar" fork="true"/>
 	</target>
 
 	<target name="deploy" depends="build-war">

@@ -1,0 +1,45 @@
+input, label {
+	display: block;
+	float: left;
+	margin: 10px 10px 0 0;
+}
+
+label {
+	width: 100px;
+}
+
+input {
+	width: 200px;
+}
+
+input.wide {
+	width: 400px;
+}
+
+input.inputbutton {
+	width: 100px;
+}
+
+#error-form {
+	border: 1px dotted red;
+	width: 60%;
+	margin-left: 20%;
+	text-align: center;
+	background-color: pink;
+	font-weight: bold;
+}
+
+.error-field, .warn-field {
+	margin: 0 0 0 110px;
+	font-size: 0.8em;
+	width: 50%;
+	clear: both;
+}
+
+.error-field {
+	color: red;
+}
+
+.warn-field {
+	color: fuchsia;
+}

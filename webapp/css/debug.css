@@ -1,0 +1,70 @@
+#header {
+	border: 1px solid red;
+	margin: 2px;
+	padding: 2px;
+	background-color: #AAAAAA;
+}
+
+#app-logo {
+	border: 1px dotted red;
+	margin: 2px;
+	padding: 2px;
+	background-color: #CCCCCC;
+}
+
+#app-name {
+	border: 1px dotted red;
+	margin: 2px;
+	padding: 2px;
+	background-color: #CCCCCC;
+}
+
+#footer {
+	border: 1px solid blue;
+	margin: 2px;
+	padding: 2px;
+	background-color: #AAAAAA;
+}
+
+#company-logo {
+	border: 1px solid orange;
+	margin: 2px;
+	padding: 2px;
+}
+
+#top-bar {
+	border: 1px solid green;
+	margin: 2px;
+	padding: 2px;
+	background-color: #CCCCCC;
+}
+
+#menu-bar {
+	border: 1px dotted cyan;
+	margin: 2px;
+	padding: 2px;
+}
+
+#notification {
+	border: 1px solid orange;
+	margin: 2px;
+	padding: 2px;
+}
+
+#main {
+	border: 1px solid black;
+	margin: 2px;
+	padding: 2px;
+}
+
+#content {
+	border: 1px dotted silver;
+	margin: 2px;
+	padding: 2px;
+}
+
+#sidebar {
+	border: 1px solid magenta;
+	margin: 2px;
+	padding: 2px;
+}
