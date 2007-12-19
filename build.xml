@@ -1,3 +1,4 @@
+
 <project name="tutorial-spring25" default="run">
 
 	<property name="source.java" value="src/java" />
@@ -54,7 +55,7 @@
 		</junitreport>
 	</target>
 
-	<target name="build-jar" depends="clean, unit-test">
+	<target name="build-jar" depends="clean, compile">
 		<jar destfile="dist/${ant.project.name}.jar">
 			<fileset dir="${compile.normal.dir}">
 				<include name="**/*.class" />
