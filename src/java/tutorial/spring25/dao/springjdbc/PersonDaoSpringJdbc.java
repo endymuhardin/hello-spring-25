@@ -63,6 +63,7 @@ public class PersonDaoSpringJdbc implements PersonDao {
 	@Override
 	public Person getById(final Long id) {
 		try {
+			if(id == null) return null;
 			return simpleJdbcTemplate.queryForObject(SQL_GET_BY_ID,
 					new PersonMapper(), id);
 		} catch (Exception e) {
