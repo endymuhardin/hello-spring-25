@@ -13,18 +13,22 @@
 	<tr>
 		<td>Nama</td>
 		<td>
-			#springBind("person.name")
 			<input type="text" name="name" value="$!person.Name">
 		</td>
-		<td>#springShowErrors("<br>" "")</td>
+		<td>
+		  #springBind("person.name")
+		  #springShowErrors("<br>" "")
+		</td>
 	</tr>
 	<tr>
 		<td>Email</td>
 		<td>
-			#springBind("person.email")
 			<input type="text" name="email" value="$!person.Email">
 		</td>
-		<td>#springShowErrors("<br>" "")</td>
+		<td>
+		  #springBind("person.email")
+		  #springShowErrors("<br>" "")
+		</td>
 	</tr>
 	<tr>
 		<td colspan="3"><input type="submit" value="Save"></td>

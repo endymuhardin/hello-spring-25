@@ -49,7 +49,7 @@ public class PersonUploadController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST) 
-	public String processForm(@RequestParam("file") MultipartFile file, final HttpSession session) {
+	public String processForm(@RequestParam("persondata") MultipartFile file, final HttpSession session) {
 		LOG.debug("processing uploaded file");
 		if(file == null) {
 			LOG.debug("No file uploaded");
@@ -80,16 +80,16 @@ public class PersonUploadController {
 			
 			
 			// parse list of strings into list of Persons
-			List<Person> Persons = new ArrayList<Person>();
+			List<Person> persons = new ArrayList<Person>();
 			List<ParseError> errors = new ArrayList<ParseError>();
-			personDataParser.parse(contents, Persons, errors);
+			personDataParser.parse(contents, persons, errors);
 			
-			for (Person Person : Persons) {
-				personDao.save(Person);
+			for (Person person : persons) {
+				personDao.save(person);
 			}
 			
 			session.setAttribute(Constants.PERSONUPLOAD_ERRORS_KEY, errors);
-			session.setAttribute(Constants.PERSONUPLOAD_SUCCESS_KEY, Persons);
+			session.setAttribute(Constants.PERSONUPLOAD_SUCCESS_KEY, persons);
 		}
 		return REDIRECT_PERSONUPLOADRESULT;
 	}
