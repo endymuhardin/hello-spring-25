@@ -1,0 +1,58 @@
+<html>
+
+<head><title>:: Person Upload Result ::</title></head>
+
+<body>
+
+<h1>Person Upload Result</h1>
+
+<h2>Successfully Imported Person Data</h2>
+#if (!$personList ||  ${personList.isEmpty()})
+
+<h3>No Data</h3>
+
+#else
+
+<table border="0" cellpadding="2" cellspacing="2">
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>&nbsp;</th>
+	</tr>
+	#foreach($person in $personList)
+	<tr>
+		<td>$person.Name</td>
+		<td>$person.Email</td>
+		<td><a href="personform?id=$person.Id">edit</a> | <a
+			href="persondetail?id=$person.Id">view</a></td>
+	</tr>
+	#end
+</table>
+#end
+
+
+<h2>Erroneous Data</h2>
+#if (!$parseErrorList ||  ${parseErrorList.isEmpty()})
+
+<h3>No Data</h3>
+
+#else
+
+<table border="0" cellpadding="2" cellspacing="2">
+	<tr>
+		<th>Row</th>
+		<th>Data</th>
+		<th>Reason</th>
+	</tr>
+	#foreach($error in $parseErrorList)
+	<tr>
+		<td>$error.Line</td>
+		<td>$error.Text</td>
+		<td>$error.Reason</td>
+	</tr>
+	#end
+</table>
+#end
+
+</body>
+</html>

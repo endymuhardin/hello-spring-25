@@ -1,5 +1,7 @@
 package tutorial.spring25.ui.springmvc;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,5 +28,27 @@ public class PersonController {
 	@RequestMapping("/persondetail")
 	public ModelMap detail(@RequestParam("person_id") Long personId){
 		return new ModelMap(personDao.getById(personId));
+	}
+	
+	@RequestMapping("/personuploadresult")
+	public ModelMap uploadResult(final HttpSession session){
+		final ModelMap modelMap = new ModelMap();
+
+		if (session.getAttribute(Constants.PERSONUPLOAD_SUCCESS_KEY) != null) {
+
+			modelMap.addAttribute(session
+					.getAttribute(Constants.PERSONUPLOAD_SUCCESS_KEY));
+
+			session.removeAttribute(Constants.PERSONUPLOAD_SUCCESS_KEY);
+		}
+		
+		if (session.getAttribute(Constants.PERSONUPLOAD_ERRORS_KEY) != null) {
+
+			modelMap.addAttribute(session
+					.getAttribute(Constants.PERSONUPLOAD_ERRORS_KEY));
+
+			session.removeAttribute(Constants.PERSONUPLOAD_ERRORS_KEY);
+		}
+		return modelMap;
 	}
 }

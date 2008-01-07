@@ -12,15 +12,15 @@ public class PersonValidator {
 	private static final String PERSON_EMAIL_MALFORMED_KEY = "person.email.malformed";
 	private static final String DEFAULT_ERROR_MESSAGE = "DEFAULT ERROR MESSAGE, PLEASE OVERRIDE";
 	private static final String PERSON_NAME_REQUIRED_KEY = "person.name.required";
-	private static final String EMAIL_FORMAT = ".*@.*\\.com";
+	private static final String EMAIL_FORMAT = ".+@.+\\..+";
 
 	public void validate(Person person, Errors errors) {
-		// field nama harus diisi
+		// name is required
 		if(!StringUtils.hasText(person.getName())) {
 			errors.rejectValue(FIELD_NAME, PERSON_NAME_REQUIRED_KEY, DEFAULT_ERROR_MESSAGE);
 		}
 
-		// bila field email diisi, formatnya harus benar
+		// email must be in the right format
 		if (StringUtils.hasLength(person.getEmail()) && !person.getEmail().matches(EMAIL_FORMAT) ) {
 			errors.rejectValue(FIELD_EMAIL, PERSON_EMAIL_MALFORMED_KEY, DEFAULT_ERROR_MESSAGE);
 		}
