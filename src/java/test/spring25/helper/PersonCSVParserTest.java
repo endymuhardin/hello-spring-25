@@ -1,4 +1,4 @@
-package test.tutorial.spring25.helper;
+package test.spring25.helper;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,6 +15,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import tutorial.spring25.common.ParseError;
 import tutorial.spring25.helper.PersonCSVParser;
 import tutorial.spring25.model.Person;
+
 
 public class PersonCSVParserTest {
 
@@ -33,11 +34,7 @@ public class PersonCSVParserTest {
 		
 		final BufferedReader reader = new BufferedReader(new FileReader("fixtures/person.csv"));
 		String content = reader.readLine();
-		while(content != null) {
-			if("".equals(content)) {
-				content = reader.readLine();
-				continue;
-			}
+		while(content != null) {			
 			data.add(content);
 			content = reader.readLine();
 		}
@@ -60,10 +57,6 @@ public class PersonCSVParserTest {
 		final BufferedReader reader = new BufferedReader(new FileReader("fixtures/person-with-malformed-emails.csv"));
 		String content = reader.readLine();
 		while(content != null) {
-			if("".equals(content)) {
-				content = reader.readLine();
-				continue;
-			}
 			data.add(content);
 			content = reader.readLine();
 		}

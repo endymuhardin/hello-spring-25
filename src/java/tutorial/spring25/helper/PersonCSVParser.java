@@ -45,6 +45,12 @@ public class PersonCSVParser {
 		
 		for(String text : data){
 			counter++;
+			
+			// skip blank lines
+			if(null == text || "".equals(text.trim()) || text.trim().length() < 1) {
+				continue;
+			}
+			
 			StringTokenizer tokenizer = new StringTokenizer(text, delimiter);
 			
 			// check for malformed data

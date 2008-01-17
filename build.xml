@@ -37,7 +37,7 @@
 		</javac>
 	</target>
 
-	<target name="unit-test" depends="compile">
+	<target name="test" depends="clean, compile">
 		<junit haltonfailure="true" fork="true" printsummary="true">
 			<classpath refid="compile.classpath" />
 			<classpath location="${compile.normal.dir}" />

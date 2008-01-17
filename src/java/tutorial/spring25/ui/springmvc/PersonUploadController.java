@@ -65,11 +65,6 @@ public class PersonUploadController {
 				String content = reader.readLine();
 				while(content != null) {
 					LOG.debug(content);
-					
-					if("".equals(content)) {
-						content = reader.readLine();
-						continue;
-					}
 					contents.add(content);
 					content = reader.readLine();
 				}
